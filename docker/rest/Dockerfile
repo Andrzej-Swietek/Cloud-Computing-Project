@@ -1,10 +1,5 @@
-FROM gradle:8.7.0-jdk21 AS build
+FROM eclipse-temurin:24-jre
 WORKDIR /app
-COPY . .
-RUN gradle build -x test
-
-FROM eclipse-temurin:21-jre
-WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
+RUN wget -O app.jar https://github.com/Andrzej-Swietek/Cloud-Computing-Project/releases/download/backend-v0.0.1/recommender-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
