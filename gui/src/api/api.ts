@@ -2886,15 +2886,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addHobby: async (hobbyId: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addHobby: async (hobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'hobbyId' is not null or undefined
             assertParamExists('addHobby', 'hobbyId', hobbyId)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('addHobby', 'authorization', authorization)
             const localVarPath = `/api/v1/users/hobby/{hobbyId}`
                 .replace(`{${"hobbyId"}}`, encodeURIComponent(String(hobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2910,9 +2907,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -2925,15 +2919,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTrait: async (traitId: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addTrait: async (traitId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'traitId' is not null or undefined
             assertParamExists('addTrait', 'traitId', traitId)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('addTrait', 'authorization', authorization)
             const localVarPath = `/api/v1/users/trait/{traitId}`
                 .replace(`{${"traitId"}}`, encodeURIComponent(String(traitId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2949,9 +2940,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3032,15 +3020,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeFood: async (id: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        dislikeFood: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('dislikeFood', 'id', id)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('dislikeFood', 'authorization', authorization)
             const localVarPath = `/api/v1/users/food/{id}/dislike`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3056,9 +3041,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3071,15 +3053,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeMovie: async (id: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        dislikeMovie: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('dislikeMovie', 'id', id)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('dislikeMovie', 'authorization', authorization)
             const localVarPath = `/api/v1/users/movie/{id}/dislike`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3095,9 +3074,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3110,15 +3086,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeUser: async (id: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        dislikeUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('dislikeUser', 'id', id)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('dislikeUser', 'authorization', authorization)
             const localVarPath = `/api/v1/users/{id}/dislike`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3134,9 +3107,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3212,17 +3182,14 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeFood: async (id: string, score: number, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        likeFood: async (id: string, score: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('likeFood', 'id', id)
             // verify required parameter 'score' is not null or undefined
             assertParamExists('likeFood', 'score', score)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('likeFood', 'authorization', authorization)
             const localVarPath = `/api/v1/users/food/{id}/like/{score}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)))
                 .replace(`{${"score"}}`, encodeURIComponent(String(score)));
@@ -3239,9 +3206,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3255,17 +3219,14 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeMovie: async (id: string, score: number, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        likeMovie: async (id: string, score: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('likeMovie', 'id', id)
             // verify required parameter 'score' is not null or undefined
             assertParamExists('likeMovie', 'score', score)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('likeMovie', 'authorization', authorization)
             const localVarPath = `/api/v1/users/movie/{id}/like/{score}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)))
                 .replace(`{${"score"}}`, encodeURIComponent(String(score)));
@@ -3282,9 +3243,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3297,15 +3255,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeUser: async (id: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        likeUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('likeUser', 'id', id)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('likeUser', 'authorization', authorization)
             const localVarPath = `/api/v1/users/{id}/like`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3321,9 +3276,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3336,15 +3288,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeHobby: async (hobbyId: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeHobby: async (hobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'hobbyId' is not null or undefined
             assertParamExists('removeHobby', 'hobbyId', hobbyId)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('removeHobby', 'authorization', authorization)
             const localVarPath = `/api/v1/users/remove-hobby/{hobbyId}`
                 .replace(`{${"hobbyId"}}`, encodeURIComponent(String(hobbyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3360,9 +3309,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3375,15 +3321,12 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeTrait: async (traitId: string, authorization: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeTrait: async (traitId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'traitId' is not null or undefined
             assertParamExists('removeTrait', 'traitId', traitId)
-            // verify required parameter 'authorization' is not null or undefined
-            assertParamExists('removeTrait', 'authorization', authorization)
             const localVarPath = `/api/v1/users/remove-trait/{traitId}`
                 .replace(`{${"traitId"}}`, encodeURIComponent(String(traitId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3399,9 +3342,6 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
 
 
     
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -3463,12 +3403,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addHobby(hobbyId, authorization, options);
+        async addHobby(hobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addHobby(hobbyId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.addHobby']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3476,12 +3415,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addTrait(traitId, authorization, options);
+        async addTrait(traitId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTrait(traitId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.addTrait']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3513,12 +3451,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dislikeFood(id: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeFood(id, authorization, options);
+        async dislikeFood(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeFood(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeFood']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3526,12 +3463,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dislikeMovie(id: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeMovie(id, authorization, options);
+        async dislikeMovie(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeMovie(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeMovie']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3539,12 +3475,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async dislikeUser(id: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeUser(id, authorization, options);
+        async dislikeUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeUser(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeUser']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3576,12 +3511,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async likeFood(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.likeFood(id, score, authorization, options);
+        async likeFood(id: string, score: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeFood(id, score, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeFood']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3590,12 +3524,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async likeMovie(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.likeMovie(id, score, authorization, options);
+        async likeMovie(id: string, score: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeMovie(id, score, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeMovie']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3603,12 +3536,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async likeUser(id: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.likeUser(id, authorization, options);
+        async likeUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeUser(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeUser']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3616,12 +3548,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeHobby(hobbyId, authorization, options);
+        async removeHobby(hobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeHobby(hobbyId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.removeHobby']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3629,12 +3560,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeTrait(traitId, authorization, options);
+        async removeTrait(traitId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeTrait(traitId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.removeTrait']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3665,22 +3595,20 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.addHobby(hobbyId, authorization, options).then((request) => request(axios, basePath));
+        addHobby(hobbyId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.addHobby(hobbyId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.addTrait(traitId, authorization, options).then((request) => request(axios, basePath));
+        addTrait(traitId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.addTrait(traitId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3703,32 +3631,29 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeFood(id: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.dislikeFood(id, authorization, options).then((request) => request(axios, basePath));
+        dislikeFood(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeFood(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeMovie(id: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.dislikeMovie(id, authorization, options).then((request) => request(axios, basePath));
+        dislikeMovie(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeMovie(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        dislikeUser(id: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.dislikeUser(id, authorization, options).then((request) => request(axios, basePath));
+        dislikeUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeUser(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3751,53 +3676,48 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeFood(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.likeFood(id, score, authorization, options).then((request) => request(axios, basePath));
+        likeFood(id: string, score: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeFood(id, score, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
          * @param {number} score 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeMovie(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.likeMovie(id, score, authorization, options).then((request) => request(axios, basePath));
+        likeMovie(id: string, score: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeMovie(id, score, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} id 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        likeUser(id: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.likeUser(id, authorization, options).then((request) => request(axios, basePath));
+        likeUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeUser(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} hobbyId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.removeHobby(hobbyId, authorization, options).then((request) => request(axios, basePath));
+        removeHobby(hobbyId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.removeHobby(hobbyId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} traitId 
-         * @param {string} authorization 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
-            return localVarFp.removeTrait(traitId, authorization, options).then((request) => request(axios, basePath));
+        removeTrait(traitId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.removeTrait(traitId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3822,25 +3742,23 @@ export class UserControllerApi extends BaseAPI {
     /**
      * 
      * @param {string} hobbyId 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public addHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).addHobby(hobbyId, authorization, options).then((request) => request(this.axios, this.basePath));
+    public addHobby(hobbyId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).addHobby(hobbyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} traitId 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public addTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).addTrait(traitId, authorization, options).then((request) => request(this.axios, this.basePath));
+    public addTrait(traitId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).addTrait(traitId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3868,37 +3786,34 @@ export class UserControllerApi extends BaseAPI {
     /**
      * 
      * @param {string} id 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public dislikeFood(id: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).dislikeFood(id, authorization, options).then((request) => request(this.axios, this.basePath));
+    public dislikeFood(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeFood(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public dislikeMovie(id: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).dislikeMovie(id, authorization, options).then((request) => request(this.axios, this.basePath));
+    public dislikeMovie(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeMovie(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public dislikeUser(id: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).dislikeUser(id, authorization, options).then((request) => request(this.axios, this.basePath));
+    public dislikeUser(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeUser(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3926,62 +3841,57 @@ export class UserControllerApi extends BaseAPI {
      * 
      * @param {string} id 
      * @param {number} score 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public likeFood(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).likeFood(id, score, authorization, options).then((request) => request(this.axios, this.basePath));
+    public likeFood(id: string, score: number, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeFood(id, score, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
      * @param {number} score 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public likeMovie(id: string, score: number, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).likeMovie(id, score, authorization, options).then((request) => request(this.axios, this.basePath));
+    public likeMovie(id: string, score: number, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeMovie(id, score, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} id 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public likeUser(id: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).likeUser(id, authorization, options).then((request) => request(this.axios, this.basePath));
+    public likeUser(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeUser(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} hobbyId 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public removeHobby(hobbyId: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).removeHobby(hobbyId, authorization, options).then((request) => request(this.axios, this.basePath));
+    public removeHobby(hobbyId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).removeHobby(hobbyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} traitId 
-     * @param {string} authorization 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public removeTrait(traitId: string, authorization: string, options?: RawAxiosRequestConfig) {
-        return UserControllerApiFp(this.configuration).removeTrait(traitId, authorization, options).then((request) => request(this.axios, this.basePath));
+    public removeTrait(traitId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).removeTrait(traitId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
