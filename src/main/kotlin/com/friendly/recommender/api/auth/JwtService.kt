@@ -12,7 +12,7 @@ import java.util.*
 interface JwtService {
     fun generateToken(userId: String, username: String, email: String, roles: List<String>): String
     fun extractUsername(token: String): String?
-    fun extractUserId(token: String): Long
+    fun extractUserId(token: String): String
     fun extractEmail(token: String): String
     fun extractRoles(token: String): List<String>
     fun validateToken(token: String, username: String): Boolean
@@ -39,8 +39,8 @@ class JwtServiceImpl(
     override fun extractUsername(token: String): String? =
         extractClaims(token).subject
 
-    override fun extractUserId(token: String): Long =
-        extractClaims(token)["userId"]?.toString()?.toLong()
+    override fun extractUserId(token: String): String =
+        extractClaims(token)["userId"]?.toString()
             ?: throw IllegalArgumentException("userId not found in token")
 
     override fun extractEmail(token: String): String =

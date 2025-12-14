@@ -76,12 +76,6 @@ export interface ErrorResponse {
 export interface Food {
     /**
      * 
-     * @type {number}
-     * @memberof Food
-     */
-    'id'?: number;
-    /**
-     * 
      * @type {string}
      * @memberof Food
      */
@@ -138,10 +132,10 @@ export interface FoodRelationship {
 export interface FoodRelationshipRequest {
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof FoodRelationshipRequest
      */
-    'foodId': number;
+    'foodId': string;
     /**
      * 
      * @type {number}
@@ -155,12 +149,6 @@ export interface FoodRelationshipRequest {
  * @interface Hobby
  */
 export interface Hobby {
-    /**
-     * 
-     * @type {number}
-     * @memberof Hobby
-     */
-    'id'?: number;
     /**
      * 
      * @type {string}
@@ -180,12 +168,6 @@ export interface Hobby {
  * @interface Movie
  */
 export interface Movie {
-    /**
-     * 
-     * @type {number}
-     * @memberof Movie
-     */
-    'id'?: number;
     /**
      * 
      * @type {string}
@@ -261,10 +243,10 @@ export interface MovieRelationship {
 export interface MovieRelationshipRequest {
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof MovieRelationshipRequest
      */
-    'movieId': number;
+    'movieId': string;
     /**
      * 
      * @type {number}
@@ -278,12 +260,6 @@ export interface MovieRelationshipRequest {
  * @interface PersonalityTrait
  */
 export interface PersonalityTrait {
-    /**
-     * 
-     * @type {number}
-     * @memberof PersonalityTrait
-     */
-    'id'?: number;
     /**
      * 
      * @type {string}
@@ -338,16 +314,16 @@ export interface RegisterRequest {
     'password': string;
     /**
      * 
-     * @type {Array<number>}
+     * @type {Array<string>}
      * @memberof RegisterRequest
      */
-    'traits': Array<number>;
+    'traits': Array<string>;
     /**
      * 
-     * @type {Array<number>}
+     * @type {Array<string>}
      * @memberof RegisterRequest
      */
-    'hobbies': Array<number>;
+    'hobbies': Array<string>;
     /**
      * 
      * @type {Array<MovieRelationshipRequest>}
@@ -374,16 +350,16 @@ export interface RegisterRequest {
     'dislikeFood': Array<FoodRelationshipRequest>;
     /**
      * 
-     * @type {Array<number>}
+     * @type {Array<string>}
      * @memberof RegisterRequest
      */
-    'likedUsers': Array<number>;
+    'likedUsers': Array<string>;
     /**
      * 
-     * @type {Array<number>}
+     * @type {Array<string>}
      * @memberof RegisterRequest
      */
-    'dislikedUsers': Array<number>;
+    'dislikedUsers': Array<string>;
 }
 /**
  * 
@@ -391,24 +367,6 @@ export interface RegisterRequest {
  * @interface User
  */
 export interface User {
-    /**
-     * 
-     * @type {number}
-     * @memberof User
-     */
-    'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    'firstname': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof User
-     */
-    'lastname': string;
     /**
      * 
      * @type {string}
@@ -421,6 +379,18 @@ export interface User {
      * @memberof User
      */
     'password': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    'firstname': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
+    'lastname': string;
     /**
      * 
      * @type {Array<PersonalityTrait>}
@@ -478,10 +448,10 @@ export interface User {
 export interface UserResponse {
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof UserResponse
      */
-    'id'?: number;
+    'id'?: string;
     /**
      * 
      * @type {string}
@@ -834,11 +804,11 @@ export const FoodControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete3: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        delete3: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('delete3', 'id', id)
             const localVarPath = `/api/foods/{id}`
@@ -867,11 +837,11 @@ export const FoodControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get3: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        get3: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('get3', 'id', id)
             const localVarPath = `/api/foods/{id}`
@@ -991,12 +961,12 @@ export const FoodControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Food} food 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update3: async (id: number, food: Food, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        update3: async (id: string, food: Food, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('update3', 'id', id)
             // verify required parameter 'food' is not null or undefined
@@ -1052,11 +1022,11 @@ export const FoodControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async delete3(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async delete3(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.delete3(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['FoodControllerApi.delete3']?.[localVarOperationServerIndex]?.url;
@@ -1064,11 +1034,11 @@ export const FoodControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async get3(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Food>> {
+        async get3(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Food>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.get3(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['FoodControllerApi.get3']?.[localVarOperationServerIndex]?.url;
@@ -1110,12 +1080,12 @@ export const FoodControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Food} food 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async update3(id: number, food: Food, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Food>> {
+        async update3(id: string, food: Food, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Food>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.update3(id, food, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['FoodControllerApi.update3']?.[localVarOperationServerIndex]?.url;
@@ -1142,20 +1112,20 @@ export const FoodControllerApiFactory = function (configuration?: Configuration,
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete3(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        delete3(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.delete3(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get3(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Food> {
+        get3(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Food> {
             return localVarFp.get3(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1185,12 +1155,12 @@ export const FoodControllerApiFactory = function (configuration?: Configuration,
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Food} food 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update3(id: number, food: Food, options?: RawAxiosRequestConfig): AxiosPromise<Food> {
+        update3(id: string, food: Food, options?: RawAxiosRequestConfig): AxiosPromise<Food> {
             return localVarFp.update3(id, food, options).then((request) => request(axios, basePath));
         },
     };
@@ -1216,23 +1186,23 @@ export class FoodControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FoodControllerApi
      */
-    public delete3(id: number, options?: RawAxiosRequestConfig) {
+    public delete3(id: string, options?: RawAxiosRequestConfig) {
         return FoodControllerApiFp(this.configuration).delete3(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FoodControllerApi
      */
-    public get3(id: number, options?: RawAxiosRequestConfig) {
+    public get3(id: string, options?: RawAxiosRequestConfig) {
         return FoodControllerApiFp(this.configuration).get3(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1269,13 +1239,13 @@ export class FoodControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {Food} food 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FoodControllerApi
      */
-    public update3(id: number, food: Food, options?: RawAxiosRequestConfig) {
+    public update3(id: string, food: Food, options?: RawAxiosRequestConfig) {
         return FoodControllerApiFp(this.configuration).update3(id, food, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1325,11 +1295,11 @@ export const HobbyControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete2: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        delete2: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('delete2', 'id', id)
             const localVarPath = `/api/hobbies/{id}`
@@ -1358,11 +1328,11 @@ export const HobbyControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get2: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        get2: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('get2', 'id', id)
             const localVarPath = `/api/hobbies/{id}`
@@ -1486,12 +1456,12 @@ export const HobbyControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Hobby} hobby 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update2: async (id: number, hobby: Hobby, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        update2: async (id: string, hobby: Hobby, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('update2', 'id', id)
             // verify required parameter 'hobby' is not null or undefined
@@ -1547,11 +1517,11 @@ export const HobbyControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async delete2(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async delete2(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.delete2(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HobbyControllerApi.delete2']?.[localVarOperationServerIndex]?.url;
@@ -1559,11 +1529,11 @@ export const HobbyControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async get2(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hobby>> {
+        async get2(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hobby>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.get2(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HobbyControllerApi.get2']?.[localVarOperationServerIndex]?.url;
@@ -1606,12 +1576,12 @@ export const HobbyControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Hobby} hobby 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async update2(id: number, hobby: Hobby, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hobby>> {
+        async update2(id: string, hobby: Hobby, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Hobby>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.update2(id, hobby, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['HobbyControllerApi.update2']?.[localVarOperationServerIndex]?.url;
@@ -1638,20 +1608,20 @@ export const HobbyControllerApiFactory = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete2(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        delete2(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.delete2(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get2(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Hobby> {
+        get2(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Hobby> {
             return localVarFp.get2(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1682,12 +1652,12 @@ export const HobbyControllerApiFactory = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Hobby} hobby 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update2(id: number, hobby: Hobby, options?: RawAxiosRequestConfig): AxiosPromise<Hobby> {
+        update2(id: string, hobby: Hobby, options?: RawAxiosRequestConfig): AxiosPromise<Hobby> {
             return localVarFp.update2(id, hobby, options).then((request) => request(axios, basePath));
         },
     };
@@ -1713,23 +1683,23 @@ export class HobbyControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HobbyControllerApi
      */
-    public delete2(id: number, options?: RawAxiosRequestConfig) {
+    public delete2(id: string, options?: RawAxiosRequestConfig) {
         return HobbyControllerApiFp(this.configuration).delete2(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HobbyControllerApi
      */
-    public get2(id: number, options?: RawAxiosRequestConfig) {
+    public get2(id: string, options?: RawAxiosRequestConfig) {
         return HobbyControllerApiFp(this.configuration).get2(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1767,13 +1737,13 @@ export class HobbyControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {Hobby} hobby 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof HobbyControllerApi
      */
-    public update2(id: number, hobby: Hobby, options?: RawAxiosRequestConfig) {
+    public update2(id: string, hobby: Hobby, options?: RawAxiosRequestConfig) {
         return HobbyControllerApiFp(this.configuration).update2(id, hobby, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1823,11 +1793,11 @@ export const MovieControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete1: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        delete1: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('delete1', 'id', id)
             const localVarPath = `/api/movies/{id}`
@@ -1856,11 +1826,11 @@ export const MovieControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get1: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        get1: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('get1', 'id', id)
             const localVarPath = `/api/movies/{id}`
@@ -2013,12 +1983,12 @@ export const MovieControllerApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Movie} movie 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update1: async (id: number, movie: Movie, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        update1: async (id: string, movie: Movie, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('update1', 'id', id)
             // verify required parameter 'movie' is not null or undefined
@@ -2074,11 +2044,11 @@ export const MovieControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async delete1(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async delete1(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.delete1(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MovieControllerApi.delete1']?.[localVarOperationServerIndex]?.url;
@@ -2086,11 +2056,11 @@ export const MovieControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async get1(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Movie>> {
+        async get1(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Movie>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.get1(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MovieControllerApi.get1']?.[localVarOperationServerIndex]?.url;
@@ -2144,12 +2114,12 @@ export const MovieControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Movie} movie 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async update1(id: number, movie: Movie, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Movie>> {
+        async update1(id: string, movie: Movie, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Movie>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.update1(id, movie, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MovieControllerApi.update1']?.[localVarOperationServerIndex]?.url;
@@ -2176,20 +2146,20 @@ export const MovieControllerApiFactory = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        delete1(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        delete1(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.delete1(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get1(id: number, options?: RawAxiosRequestConfig): AxiosPromise<Movie> {
+        get1(id: string, options?: RawAxiosRequestConfig): AxiosPromise<Movie> {
             return localVarFp.get1(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2228,12 +2198,12 @@ export const MovieControllerApiFactory = function (configuration?: Configuration
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {Movie} movie 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update1(id: number, movie: Movie, options?: RawAxiosRequestConfig): AxiosPromise<Movie> {
+        update1(id: string, movie: Movie, options?: RawAxiosRequestConfig): AxiosPromise<Movie> {
             return localVarFp.update1(id, movie, options).then((request) => request(axios, basePath));
         },
     };
@@ -2259,23 +2229,23 @@ export class MovieControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MovieControllerApi
      */
-    public delete1(id: number, options?: RawAxiosRequestConfig) {
+    public delete1(id: string, options?: RawAxiosRequestConfig) {
         return MovieControllerApiFp(this.configuration).delete1(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MovieControllerApi
      */
-    public get1(id: number, options?: RawAxiosRequestConfig) {
+    public get1(id: string, options?: RawAxiosRequestConfig) {
         return MovieControllerApiFp(this.configuration).get1(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2323,13 +2293,13 @@ export class MovieControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {Movie} movie 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MovieControllerApi
      */
-    public update1(id: number, movie: Movie, options?: RawAxiosRequestConfig) {
+    public update1(id: string, movie: Movie, options?: RawAxiosRequestConfig) {
         return MovieControllerApiFp(this.configuration).update1(id, movie, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -2361,11 +2331,11 @@ export const PersonalityTraitControllerApiAxiosParamCreator = function (configur
     return {
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _delete: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        _delete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('_delete', 'id', id)
             const localVarPath = `/api/traits/{id}`
@@ -2429,11 +2399,11 @@ export const PersonalityTraitControllerApiAxiosParamCreator = function (configur
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        get: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('get', 'id', id)
             const localVarPath = `/api/traits/{id}`
@@ -2524,12 +2494,12 @@ export const PersonalityTraitControllerApiAxiosParamCreator = function (configur
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {PersonalityTrait} personalityTrait 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update: async (id: number, personalityTrait: PersonalityTrait, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        update: async (id: string, personalityTrait: PersonalityTrait, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('update', 'id', id)
             // verify required parameter 'personalityTrait' is not null or undefined
@@ -2573,11 +2543,11 @@ export const PersonalityTraitControllerApiFp = function(configuration?: Configur
     return {
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _delete(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async _delete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator._delete(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PersonalityTraitControllerApi._delete']?.[localVarOperationServerIndex]?.url;
@@ -2597,11 +2567,11 @@ export const PersonalityTraitControllerApiFp = function(configuration?: Configur
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async get(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonalityTrait>> {
+        async get(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonalityTrait>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.get(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PersonalityTraitControllerApi.get']?.[localVarOperationServerIndex]?.url;
@@ -2632,12 +2602,12 @@ export const PersonalityTraitControllerApiFp = function(configuration?: Configur
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {PersonalityTrait} personalityTrait 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async update(id: number, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonalityTrait>> {
+        async update(id: string, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PersonalityTrait>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.update(id, personalityTrait, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['PersonalityTraitControllerApi.update']?.[localVarOperationServerIndex]?.url;
@@ -2655,11 +2625,11 @@ export const PersonalityTraitControllerApiFactory = function (configuration?: Co
     return {
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _delete(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        _delete(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp._delete(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2673,11 +2643,11 @@ export const PersonalityTraitControllerApiFactory = function (configuration?: Co
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        get(id: number, options?: RawAxiosRequestConfig): AxiosPromise<PersonalityTrait> {
+        get(id: string, options?: RawAxiosRequestConfig): AxiosPromise<PersonalityTrait> {
             return localVarFp.get(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2699,12 +2669,12 @@ export const PersonalityTraitControllerApiFactory = function (configuration?: Co
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {PersonalityTrait} personalityTrait 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        update(id: number, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig): AxiosPromise<PersonalityTrait> {
+        update(id: string, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig): AxiosPromise<PersonalityTrait> {
             return localVarFp.update(id, personalityTrait, options).then((request) => request(axios, basePath));
         },
     };
@@ -2719,12 +2689,12 @@ export const PersonalityTraitControllerApiFactory = function (configuration?: Co
 export class PersonalityTraitControllerApi extends BaseAPI {
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalityTraitControllerApi
      */
-    public _delete(id: number, options?: RawAxiosRequestConfig) {
+    public _delete(id: string, options?: RawAxiosRequestConfig) {
         return PersonalityTraitControllerApiFp(this.configuration)._delete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2741,12 +2711,12 @@ export class PersonalityTraitControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalityTraitControllerApi
      */
-    public get(id: number, options?: RawAxiosRequestConfig) {
+    public get(id: string, options?: RawAxiosRequestConfig) {
         return PersonalityTraitControllerApiFp(this.configuration).get(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2773,13 +2743,13 @@ export class PersonalityTraitControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {PersonalityTrait} personalityTrait 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalityTraitControllerApi
      */
-    public update(id: number, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig) {
+    public update(id: string, personalityTrait: PersonalityTrait, options?: RawAxiosRequestConfig) {
         return PersonalityTraitControllerApiFp(this.configuration).update(id, personalityTrait, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -2801,6 +2771,72 @@ export type GetByTypeTypeEnum = typeof GetByTypeTypeEnum[keyof typeof GetByTypeT
  */
 export const UserControllerApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addHobby: async (hobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hobbyId' is not null or undefined
+            assertParamExists('addHobby', 'hobbyId', hobbyId)
+            const localVarPath = `/api/v1/users/hobby/{hobbyId}`
+                .replace(`{${"hobbyId"}}`, encodeURIComponent(String(hobbyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addTrait: async (traitId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'traitId' is not null or undefined
+            assertParamExists('addTrait', 'traitId', traitId)
+            const localVarPath = `/api/v1/users/trait/{traitId}`
+                .replace(`{${"traitId"}}`, encodeURIComponent(String(traitId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {User} user 
@@ -2838,14 +2874,113 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUser: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteUser', 'id', id)
             const localVarPath = `/api/v1/users/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeFood: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('dislikeFood', 'id', id)
+            const localVarPath = `/api/v1/users/food/{id}/dislike`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeMovie: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('dislikeMovie', 'id', id)
+            const localVarPath = `/api/v1/users/movie/{id}/dislike`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('dislikeUser', 'id', id)
+            const localVarPath = `/api/v1/users/{id}/dislike`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2900,11 +3035,11 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser: async (id: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getUser', 'id', id)
             const localVarPath = `/api/v1/users/{id}`
@@ -2933,12 +3068,185 @@ export const UserControllerApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeFood: async (id: string, score: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('likeFood', 'id', id)
+            // verify required parameter 'score' is not null or undefined
+            assertParamExists('likeFood', 'score', score)
+            const localVarPath = `/api/v1/users/food/{id}/like/{score}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"score"}}`, encodeURIComponent(String(score)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeMovie: async (id: string, score: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('likeMovie', 'id', id)
+            // verify required parameter 'score' is not null or undefined
+            assertParamExists('likeMovie', 'score', score)
+            const localVarPath = `/api/v1/users/movie/{id}/like/{score}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)))
+                .replace(`{${"score"}}`, encodeURIComponent(String(score)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeUser: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('likeUser', 'id', id)
+            const localVarPath = `/api/v1/users/{id}/like`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeHobby: async (hobbyId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hobbyId' is not null or undefined
+            assertParamExists('removeHobby', 'hobbyId', hobbyId)
+            const localVarPath = `/api/v1/users/remove-hobby/{hobbyId}`
+                .replace(`{${"hobbyId"}}`, encodeURIComponent(String(hobbyId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeTrait: async (traitId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'traitId' is not null or undefined
+            assertParamExists('removeTrait', 'traitId', traitId)
+            const localVarPath = `/api/v1/users/remove-trait/{traitId}`
+                .replace(`{${"traitId"}}`, encodeURIComponent(String(traitId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} id 
          * @param {User} user 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser: async (id: number, user: User, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateUser: async (id: string, user: User, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateUser', 'id', id)
             // verify required parameter 'user' is not null or undefined
@@ -2982,6 +3290,30 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addHobby(hobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addHobby(hobbyId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.addHobby']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addTrait(traitId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addTrait(traitId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.addTrait']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {User} user 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2994,14 +3326,50 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUser(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUser(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.deleteUser']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dislikeFood(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeFood(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeFood']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dislikeMovie(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeMovie(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeMovie']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async dislikeUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.dislikeUser(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.dislikeUser']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -3017,11 +3385,11 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUser(id: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async getUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUser(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.getUser']?.[localVarOperationServerIndex]?.url;
@@ -3029,12 +3397,74 @@ export const UserControllerApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async likeFood(id: string, score: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeFood(id, score, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeFood']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async likeMovie(id: string, score: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeMovie(id, score, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeMovie']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async likeUser(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.likeUser(id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.likeUser']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeHobby(hobbyId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeHobby(hobbyId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.removeHobby']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async removeTrait(traitId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeTrait(traitId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UserControllerApi.removeTrait']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} id 
          * @param {User} user 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUser(id: number, user: User, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async updateUser(id: string, user: User, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUser(id, user, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['UserControllerApi.updateUser']?.[localVarOperationServerIndex]?.url;
@@ -3052,6 +3482,24 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
     return {
         /**
          * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addHobby(hobbyId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.addHobby(hobbyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addTrait(traitId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.addTrait(traitId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {User} user 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3061,12 +3509,39 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUser(id: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        deleteUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteUser(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeFood(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeFood(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeMovie(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeMovie(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        dislikeUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.dislikeUser(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -3078,21 +3553,68 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUser(id: number, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+        getUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<User> {
             return localVarFp.getUser(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {number} id 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeFood(id: string, score: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeFood(id, score, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {number} score 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeMovie(id: string, score: number, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeMovie(id, score, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        likeUser(id: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.likeUser(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} hobbyId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeHobby(hobbyId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.removeHobby(hobbyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} traitId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        removeTrait(traitId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.removeTrait(traitId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} id 
          * @param {User} user 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUser(id: number, user: User, options?: RawAxiosRequestConfig): AxiosPromise<User> {
+        updateUser(id: string, user: User, options?: RawAxiosRequestConfig): AxiosPromise<User> {
             return localVarFp.updateUser(id, user, options).then((request) => request(axios, basePath));
         },
     };
@@ -3107,6 +3629,28 @@ export const UserControllerApiFactory = function (configuration?: Configuration,
 export class UserControllerApi extends BaseAPI {
     /**
      * 
+     * @param {string} hobbyId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public addHobby(hobbyId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).addHobby(hobbyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} traitId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public addTrait(traitId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).addTrait(traitId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @param {User} user 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -3118,13 +3662,46 @@ export class UserControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public deleteUser(id: number, options?: RawAxiosRequestConfig) {
+    public deleteUser(id: string, options?: RawAxiosRequestConfig) {
         return UserControllerApiFp(this.configuration).deleteUser(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public dislikeFood(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeFood(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public dislikeMovie(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeMovie(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public dislikeUser(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).dislikeUser(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3139,24 +3716,81 @@ export class UserControllerApi extends BaseAPI {
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public getUser(id: number, options?: RawAxiosRequestConfig) {
+    public getUser(id: string, options?: RawAxiosRequestConfig) {
         return UserControllerApiFp(this.configuration).getUser(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {string} id 
+     * @param {number} score 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public likeFood(id: string, score: number, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeFood(id, score, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {number} score 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public likeMovie(id: string, score: number, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeMovie(id, score, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public likeUser(id: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).likeUser(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} hobbyId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public removeHobby(hobbyId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).removeHobby(hobbyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} traitId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserControllerApi
+     */
+    public removeTrait(traitId: string, options?: RawAxiosRequestConfig) {
+        return UserControllerApiFp(this.configuration).removeTrait(traitId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} id 
      * @param {User} user 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserControllerApi
      */
-    public updateUser(id: number, user: User, options?: RawAxiosRequestConfig) {
+    public updateUser(id: string, user: User, options?: RawAxiosRequestConfig) {
         return UserControllerApiFp(this.configuration).updateUser(id, user, options).then((request) => request(this.axios, this.basePath));
     }
 }

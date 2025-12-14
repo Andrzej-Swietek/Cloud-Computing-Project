@@ -23,20 +23,20 @@ export function Register() {
         lastname: "",
         email: "",
         password: "",
-        traits: [],
-        hobbies: [] as number[],
+        traits: [] as string[],
+        hobbies: [] as string[],
         likedMovies: [] as MovieRelationshipRequest[],
         dislikedMovies: [] as MovieRelationshipRequest[],
         foods: [] as FoodRelationshipRequest[],
         dislikeFood: [] as FoodRelationshipRequest[],
-        likedUsers: [],
-        dislikedUsers: [],
+        likedUsers: [] as string[],
+        dislikedUsers: [] as string[],
     })
 
-    const [foodScores, setFoodScores] = useState<{ [key: number]: number }>({})
-    const [dislikeFoodScores, setDislikeFoodScores] = useState<{ [key: number]: number }>({})
-    const [movieScores, setMovieScores] = useState<{ [key: number]: number }>({})
-    const [dislikeMovieScores, setDislikeMovieScores] = useState<{ [key: number]: number }>({})
+    const [foodScores, setFoodScores] = useState<{ [key: string]: number }>({})
+    const [dislikeFoodScores, setDislikeFoodScores] = useState<{ [key: string]: number }>({})
+    const [movieScores, setMovieScores] = useState<{ [key: string]: number }>({})
+    const [dislikeMovieScores, setDislikeMovieScores] = useState<{ [key: string]: number }>({})
 
     const handleBasicInfoChange = (field: string, value: string) => {
         setFormData({...formData, [field]: value})
@@ -45,23 +45,23 @@ export function Register() {
     const toggleTrait = (trait: PersonalityTrait) => {
         setFormData((prev: RegisterRequest) => ({
             ...prev,
-            traits: prev.traits.find((t) => t === trait.id)
-                ? prev.traits.filter((t) => t !== trait.id)
-                : [...prev.traits, trait.id!],
+            traits: prev.traits.find((t) => t === trait.name)
+                ? prev.traits.filter((t) => t !== trait.name)
+                : [...prev.traits, trait.name!],
         }))
     }
 
     const toggleHobby = (hobby: Hobby) => {
         setFormData((prev: RegisterRequest) => ({
             ...prev,
-            hobbies: prev.hobbies.find((h) => h === hobby.id)
-                ? prev.hobbies.filter((h) => h !== hobby.id)
-                : [...prev.hobbies, hobby.id!],
+            hobbies: prev.hobbies.find((h) => h === hobby.name)
+                ? prev.hobbies.filter((h) => h !== hobby.name)
+                : [...prev.hobbies, hobby.name!],
         }))
     }
 
-    const toggleLikedFood = (foodId: number) => {
-        const food = foods.find((f) => f.id === foodId)
+    const toggleLikedFood = (foodId: string) => {
+        const food = foods.find((f) => f.name === foodId)
         if (!food) return
 
         if (formData.foods.find((f) => f.foodId === foodId)) {
@@ -83,8 +83,8 @@ export function Register() {
         }
     }
 
-    const toggleDislikedFood = (foodId: number) => {
-        const food = foods.find((f) => f.id === foodId)
+    const toggleDislikedFood = (foodId: string) => {
+        const food = foods.find((f) => f.name === foodId)
         if (!food) return
 
         if (formData.dislikeFood.find((f) => f.foodId === foodId)) {
@@ -106,8 +106,8 @@ export function Register() {
         }
     }
 
-    const toggleLikedMovie = (movieId: number) => {
-        const movie = movies.find((m) => m.id === movieId)
+    const toggleLikedMovie = (movieId: string) => {
+        const movie = movies.find((m) => m.title === movieId)
         if (!movie) return
 
         if (formData.likedMovies.find((m) => m.movieId === movieId)) {
@@ -129,8 +129,8 @@ export function Register() {
         }
     }
 
-    const toggleDislikedMovie = (movieId: number) => {
-        const movie = movies.find((m) => m.id === movieId)
+    const toggleDislikedMovie = (movieId: string) => {
+        const movie = movies.find((m) => m.title === movieId)
         if (!movie) return
 
         if (formData.dislikedMovies.find((m) => m.movieId === movieId)) {
@@ -152,7 +152,7 @@ export function Register() {
         }
     }
 
-    const updateFoodScore = (foodId: number, score: number, isDisliked: boolean) => {
+    const updateFoodScore = (foodId: string, score: number, isDisliked: boolean) => {
         if (isDisliked) {
             setDislikeFoodScores((prev) => ({...prev, [foodId]: score}))
             setFormData((prev) => ({
@@ -168,7 +168,7 @@ export function Register() {
         }
     }
 
-    const updateMovieScore = (movieId: number, score: number, isDisliked: boolean) => {
+    const updateMovieScore = (movieId: string, score: number, isDisliked: boolean) => {
         if (isDisliked) {
             setDislikeMovieScores((prev) => ({...prev, [movieId]: score}))
             setFormData((prev) => ({
@@ -273,13 +273,13 @@ export function Register() {
                         <div className="space-y-4">
                             <div className="grid grid-cols-2 gap-3 max-h-[400px] overflow-y-auto">
                                 {traits.map((trait) => (
-                                    <div key={trait.id} className="flex items-center space-x-2">
+                                    <div key={trait.name} className="flex items-center space-x-2">
                                         <Checkbox
-                                            id={`trait-${trait.id}`}
-                                            checked={formData.traits.some((t) => t === trait.id)}
+                                            id={`trait-${trait.name}`}
+                                            checked={formData.traits.some((t) => t === trait.name)}
                                             onCheckedChange={() => toggleTrait(trait)}
                                         />
-                                        <label htmlFor={`trait-${trait.id}`} className="text-sm cursor-pointer flex-1">
+                                        <label htmlFor={`trait-${trait.name}`} className="text-sm cursor-pointer flex-1">
                                             {trait.name}
                                         </label>
                                     </div>
@@ -293,14 +293,14 @@ export function Register() {
                         <div className="space-y-4">
                             <div className="grid grid-cols-2 gap-3 max-h-[400px] overflow-y-auto">
                                 {hobbies.map((hobby) => (
-                                    <div key={hobby.id} className="flex items-start space-x-2">
+                                    <div key={hobby.name} className="flex items-start space-x-2">
                                         <Checkbox
-                                            id={`hobby-${hobby.id}`}
-                                            checked={formData.hobbies.some((h) => h === hobby.id)}
+                                            id={`hobby-${hobby.name}`}
+                                            checked={formData.hobbies.some((h) => h === hobby.name)}
                                             onCheckedChange={() => toggleHobby(hobby)}
                                         />
                                         <div className="flex-1 cursor-pointer" onClick={() => toggleHobby(hobby)}>
-                                            <label htmlFor={`hobby-${hobby.id}`}
+                                            <label htmlFor={`hobby-${hobby.name}`}
                                                    className="text-sm font-medium block cursor-pointer">
                                                 {hobby.name}
                                             </label>
@@ -320,29 +320,29 @@ export function Register() {
                                     <h3 className="text-lg font-semibold mb-3">Foods You Like</h3>
                                     <div className="grid grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pb-4">
                                         {foods.map((food) => (
-                                            <div key={`like-${food.id}`} className="space-y-2">
+                                            <div key={`like-${food.name}`} className="space-y-2">
                                                 <div className="flex items-center space-x-2">
                                                     <Checkbox
-                                                        id={`food-like-${food.id}`}
-                                                        checked={formData.foods.some((f) => f.foodId === food.id)}
-                                                        onCheckedChange={() => toggleLikedFood(food.id || 0)}
+                                                        id={`food-like-${food.name}`}
+                                                        checked={formData.foods.some((f) => f.foodId === food.name)}
+                                                        onCheckedChange={() => toggleLikedFood(food.name)}
                                                     />
-                                                    <label htmlFor={`food-like-${food.id}`}
+                                                    <label htmlFor={`food-like-${food.name}`}
                                                            className="text-sm cursor-pointer flex-1">
                                                         {food.name}
                                                     </label>
                                                 </div>
-                                                {formData.foods.some((f) => f.foodId === food.id) && (
+                                                {formData.foods.some((f) => f.foodId === food.name) && (
                                                     <div className="ml-6 space-y-1">
                                                         <div className="text-xs text-muted-foreground">
-                                                            Preference: {foodScores[food.id || 0] || 5}/10
+                                                            Preference: {foodScores[food.name] || 5}/10
                                                         </div>
                                                         <input
                                                             type="range"
                                                             min="1"
                                                             max="10"
-                                                            value={foodScores[food.id || 0] || 5}
-                                                            onChange={(e) => updateFoodScore(food.id || 0, Number.parseInt(e.target.value), false)}
+                                                            value={foodScores[food.name] || 5}
+                                                            onChange={(e) => updateFoodScore(food.name, Number.parseInt(e.target.value), false)}
                                                             className="w-full h-1"
                                                         />
                                                     </div>
@@ -356,29 +356,29 @@ export function Register() {
                                     <h3 className="text-lg font-semibold mb-3">Foods You Dislike</h3>
                                     <div className="grid grid-cols-2 gap-3 max-h-[300px] overflow-y-auto">
                                         {foods.map((food) => (
-                                            <div key={`dislike-${food.id}`} className="space-y-2">
+                                            <div key={`dislike-${food.name}`} className="space-y-2">
                                                 <div className="flex items-center space-x-2">
                                                     <Checkbox
-                                                        id={`food-dislike-${food.id}`}
-                                                        checked={formData.dislikeFood.some((f) => f.foodId === food.id)}
-                                                        onCheckedChange={() => toggleDislikedFood(food.id || 0)}
+                                                        id={`food-dislike-${food.name}`}
+                                                        checked={formData.dislikeFood.some((f) => f.foodId === food.name)}
+                                                        onCheckedChange={() => toggleDislikedFood(food.name)}
                                                     />
-                                                    <label htmlFor={`food-dislike-${food.id}`}
+                                                    <label htmlFor={`food-dislike-${food.name}`}
                                                            className="text-sm cursor-pointer flex-1">
                                                         {food.name}
                                                     </label>
                                                 </div>
-                                                {formData.dislikeFood.some((f) => f.foodId === food.id) && (
+                                                {formData.dislikeFood.some((f) => f.foodId === food.name) && (
                                                     <div className="ml-6 space-y-1">
                                                         <div className="text-xs text-muted-foreground">
-                                                            Dislike level: {dislikeFoodScores[food.id || 0] || 5}/10
+                                                            Dislike level: {dislikeFoodScores[food.name] || 5}/10
                                                         </div>
                                                         <input
                                                             type="range"
                                                             min="1"
                                                             max="10"
-                                                            value={dislikeFoodScores[food.id || 0] || 5}
-                                                            onChange={(e) => updateFoodScore(food.id || 0, Number.parseInt(e.target.value), true)}
+                                                            value={dislikeFoodScores[food.name || 0] || 5}
+                                                            onChange={(e) => updateFoodScore(food.name, Number.parseInt(e.target.value), true)}
                                                             className="w-full h-1"
                                                         />
                                                     </div>
@@ -399,16 +399,16 @@ export function Register() {
                                     <h3 className="text-lg font-semibold mb-3">Movies You Like</h3>
                                     <div className="grid grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pb-4">
                                         {movies.map((movie) => (
-                                            <div key={`like-movie-${movie.id}`} className="space-y-2">
+                                            <div key={`like-movie-${movie.title}`} className="space-y-2">
                                                 <div className="flex items-start space-x-2">
                                                     <Checkbox
-                                                        id={`movie-like-${movie.id}`}
-                                                        checked={formData.likedMovies.some((m) => m.movieId === movie.id)}
-                                                        onCheckedChange={() => toggleLikedMovie(movie.id || 0)}
+                                                        id={`movie-like-${movie.title}`}
+                                                        checked={formData.likedMovies.some((m) => m.movieId === movie.title)}
+                                                        onCheckedChange={() => toggleLikedMovie(movie.title)}
                                                     />
                                                     <div className="flex-1 cursor-pointer">
                                                         <label
-                                                            htmlFor={`movie-like-${movie.id}`}
+                                                            htmlFor={`movie-like-${movie.title}`}
                                                             className="text-sm font-medium block cursor-pointer"
                                                         >
                                                             {movie.title}
@@ -416,17 +416,17 @@ export function Register() {
                                                         <p className="text-xs text-muted-foreground">{movie.genre}</p>
                                                     </div>
                                                 </div>
-                                                {formData.likedMovies.some((m) => m.movieId === movie.id) && (
+                                                {formData.likedMovies.some((m) => m.movieId === movie.title) && (
                                                     <div className="ml-6 space-y-1">
                                                         <div className="text-xs text-muted-foreground">
-                                                            Rating: {movieScores[movie.id || 0] || 5}/10
+                                                            Rating: {movieScores[movie.title || 0] || 5}/10
                                                         </div>
                                                         <input
                                                             type="range"
                                                             min="1"
                                                             max="10"
-                                                            value={movieScores[movie.id || 0] || 5}
-                                                            onChange={(e) => updateMovieScore(movie.id || 0, Number.parseInt(e.target.value), false)}
+                                                            value={movieScores[movie.title || 0] || 5}
+                                                            onChange={(e) => updateMovieScore(movie.title, Number.parseInt(e.target.value), false)}
                                                             className="w-full h-1"
                                                         />
                                                     </div>
@@ -440,16 +440,16 @@ export function Register() {
                                     <h3 className="text-lg font-semibold mb-3">Movies You Dislike</h3>
                                     <div className="grid grid-cols-2 gap-3 max-h-[300px] overflow-y-auto">
                                         {movies.map((movie) => (
-                                            <div key={`dislike-movie-${movie.id}`} className="space-y-2">
+                                            <div key={`dislike-movie-${movie.title}`} className="space-y-2">
                                                 <div className="flex items-start space-x-2">
                                                     <Checkbox
-                                                        id={`movie-dislike-${movie.id}`}
-                                                        checked={formData.dislikedMovies.some((m) => m.movieId === movie.id)}
-                                                        onCheckedChange={() => toggleDislikedMovie(movie.id || 0)}
+                                                        id={`movie-dislike-${movie.title}`}
+                                                        checked={formData.dislikedMovies.some((m) => m.movieId === movie.title)}
+                                                        onCheckedChange={() => toggleDislikedMovie(movie.title)}
                                                     />
                                                     <div className="flex-1 cursor-pointer">
                                                         <label
-                                                            htmlFor={`movie-dislike-${movie.id}`}
+                                                            htmlFor={`movie-dislike-${movie.title}`}
                                                             className="text-sm font-medium block cursor-pointer"
                                                         >
                                                             {movie.title}
@@ -457,17 +457,17 @@ export function Register() {
                                                         <p className="text-xs text-muted-foreground">{movie.genre}</p>
                                                     </div>
                                                 </div>
-                                                {formData.dislikedMovies.some((m) => m.movieId === movie.id) && (
+                                                {formData.dislikedMovies.some((m) => m.movieId === movie.title) && (
                                                     <div className="ml-6 space-y-1">
                                                         <div className="text-xs text-muted-foreground">
-                                                            Dislike level: {dislikeMovieScores[movie.id || 0] || 5}/10
+                                                            Dislike level: {dislikeMovieScores[movie.title] || 5}/10
                                                         </div>
                                                         <input
                                                             type="range"
                                                             min="1"
                                                             max="10"
-                                                            value={dislikeMovieScores[movie.id || 0] || 5}
-                                                            onChange={(e) => updateMovieScore(movie.id || 0, Number.parseInt(e.target.value), true)}
+                                                            value={dislikeMovieScores[movie.title] || 5}
+                                                            onChange={(e) => updateMovieScore(movie.title, Number.parseInt(e.target.value), true)}
                                                             className="w-full h-1"
                                                         />
                                                     </div>

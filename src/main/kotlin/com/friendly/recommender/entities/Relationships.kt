@@ -9,13 +9,13 @@ import org.springframework.data.neo4j.core.schema.TargetNode
 @RelationshipProperties
 data class MovieRelationship(
     @Id @GeneratedValue var id: Long? = null,
-    @TargetNode val movie: Movie,
+    @TargetNode var movie: Movie,
     var score: Int
 )
 
 @RelationshipProperties
 data class FoodRelationship(
     @Id @GeneratedValue var id: Long? = null,
-    @TargetNode val food: Food,
+    @TargetNode var food: Food,
     var score: Int
 )

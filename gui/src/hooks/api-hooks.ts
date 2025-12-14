@@ -81,3 +81,21 @@ export const useGetAllTraits = () => {
         },
     })
 }
+
+export const useLikeUser = () => {
+    return useMutation({
+        mutationFn: async (userId: string) => {
+            const { data } = await UserControllerApiFactory().likeUser(userId)
+            return data
+        },
+    })
+}
+
+export const useDislikeUser = () => {
+    return useMutation({
+        mutationFn: async (userId: string) => {
+            const { data } = await UserControllerApiFactory().dislikeUser(userId)
+            return data
+        },
+    })
+}

@@ -32,9 +32,9 @@ final class AuthController(
 
     @PostMapping("/register")
     fun register(@RequestBody request: RegisterRequest): ResponseEntity<UserResponse> {
-        if (userService.findByEmail(request.email) != null) {
-            return ResponseEntity.status(409).build()
-        }
+//        if (userService.findByEmail(request.email) != null) {
+//            return ResponseEntity.status(409).build()
+//        }
 
         val createdUser = userService.createUser(
             User(
@@ -45,7 +45,6 @@ final class AuthController(
             )
         )
 
-        // Handle relationships (traits, hobbies, movies, foods, users)
         request.traits.forEach { traitId -> userService.addTrait(createdUser.email, traitId) }
         request.hobbies.forEach { hobbyId -> userService.addHobby(createdUser.email, hobbyId) }
         request.likedMovies.forEach { movieRel ->
