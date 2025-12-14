@@ -50,7 +50,7 @@ interface UserService {
     // --- Recommendations ---
     fun findTop10SimilarUsers(userId: UserId): List<User>
     fun findTop10SimilarUsersByRelationship(userId: UserId, relationshipType: String): List<User>
-
+    fun getFeedForUser(userId: UserId, limit: Int = 10): List<User>
 }
 
 @Service
@@ -162,4 +162,11 @@ class UserServiceImpl(
 
     override fun findTop10SimilarUsersByRelationship(userId: UserId, relationshipType: String): List<User> =
         manualUserRepository.findTop10SimilarUsersByRelationship(userId, relationshipType)
+
+    override fun getFeedForUser(
+        userId: UserId,
+        limit: Int
+    ): List<User> =
+        manualUserRepository.getFeedForUser(userId, limit)
+            .mapNotNull { getUserById(it.first.email) }
 }

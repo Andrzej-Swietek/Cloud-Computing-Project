@@ -532,6 +532,46 @@ class ManualUserRepository(private val driver: Driver) {
     // =======================
     // SIMILAR USERS
     // =======================
+    fun getFeedForUser(userId: UserId, limit: Int = 10): List<Pair<User, Double>> =
+        driver.session().use { session ->
+            session.run(
+                $$"""
+            MATCH (u:User {email: $userId})
+            MATCH (other:User)
+            WHERE u <> other
+
+            OPTIONAL MATCH (u)-[:LIKES_FOOD|LIKES_MOVIE|HAS_HOBBY|HAS_TRAIT]->(x)
+            OPTIONAL MATCH (other)-[:LIKES_FOOD|LIKES_MOVIE|HAS_HOBBY|HAS_TRAIT]->(x)
+
+            WITH u, other, count(DISTINCT x) AS dotProduct
+
+            MATCH (u)-[:LIKES_FOOD|LIKES_MOVIE|HAS_HOBBY|HAS_TRAIT]->(ux)
+            WITH u, other, dotProduct, count(DISTINCT ux) AS uSize
+
+            MATCH (other)-[:LIKES_FOOD|LIKES_MOVIE|HAS_HOBBY|HAS_TRAIT]->(ox)
+            WITH other, dotProduct, uSize, count(DISTINCT ox) AS oSize
+
+            WHERE uSize > 0 AND oSize > 0
+
+            WITH
+              other,
+              (1.0 * dotProduct) / (sqrt(uSize) * sqrt(oSize)) AS cosineSimilarity
+
+            ORDER BY cosineSimilarity DESC
+            LIMIT $limit
+
+            RETURN other, cosineSimilarity
+            """,
+                mapOf(
+                    "userId" to userId,
+                    "limit" to limit
+                )
+            ).list {
+                mapToUser(it["other"].asNode()) to it["cosineSimilarity"].asDouble()
+            }
+        }
+
+
     fun findTop10SimilarUsers(userId: UserId): List<User> =
         driver.session().use { session ->
             session.run(
@@ -563,8 +603,8 @@ class ManualUserRepository(private val driver: Driver) {
     fun findTopLikedUsers(userId: UserId): List<User> =
         driver.session().use { session ->
             session.run(
-                """
-                MATCH (u:User {email: \$userId})-[:LIKES_USER]->(other:User)
+                $$"""
+                MATCH (u:User {email: $userId})-[:LIKES_USER]->(other:User)
                 RETURN other
                 LIMIT 10
                 """,

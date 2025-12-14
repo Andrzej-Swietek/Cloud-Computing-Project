@@ -36,6 +36,7 @@ class SecurityConfig(
                     .requestMatchers(
                         "/api/auth/register",
                         "/api/auth/login",
+                        "/api/auth/me",
                         "/api/auth/token/",
                         "/api/auth/token/validate"
                     ).permitAll()

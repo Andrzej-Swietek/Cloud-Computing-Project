@@ -1,6 +1,6 @@
 import {useMutation, useQuery} from "@tanstack/react-query"
 import {
-    AuthControllerApiFactory,
+    AuthControllerApiFactory, FeedControllerApiFactory,
     FoodControllerApiFactory,
     HobbyControllerApiFactory,
     MovieControllerApiFactory,
@@ -97,5 +97,25 @@ export const useDislikeUser = () => {
             const { data } = await UserControllerApiFactory().dislikeUser(userId)
             return data
         },
+    })
+}
+
+export const useGetCurrentUser = () => {
+    return useQuery({
+        queryKey: ["currentUser"],
+        queryFn: async () => {
+            const {data} = await AuthControllerApiFactory().whoami();
+            return data;
+        },
+    })
+}
+
+const useUserFeed = (userId: string, limit: number = 10) => {
+    return useQuery({
+        queryKey: ["userFeed"],
+        queryFn: async () => {
+            const {data} = await FeedControllerApiFactory().getFeed(userId, limit);
+            return data;
+        }
     })
 }

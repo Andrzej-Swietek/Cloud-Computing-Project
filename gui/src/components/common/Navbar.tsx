@@ -30,6 +30,12 @@ export const Navbar: FC<NavbarProps> = () => {
                         >
                             Feed
                         </NavLink>
+                        <NavLink
+                            to="/preferences"
+                            className="text-md font-medium text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Preferences
+                        </NavLink>
                     </div>
                 </div>
             </div>

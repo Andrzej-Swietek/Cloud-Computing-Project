@@ -7,6 +7,7 @@ import {MainLayout} from '@layouts/MainLayout.tsx';
 import {Register} from "@routes/Register.tsx";
 import {Login} from "@routes/Login.tsx";
 import {FriendFeed} from "@routes/FriendFeed.tsx";
+import {Preferences} from "@routes/Preferences.tsx";
 
 interface Props {
 }
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "/feed",
                 element: <FriendFeed/>,
+            },
+            {
+                path: "/preferences",
+                element: <Preferences/>,
             },
         ],
     },

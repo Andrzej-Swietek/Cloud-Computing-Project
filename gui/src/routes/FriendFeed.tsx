@@ -1,22 +1,23 @@
 import {useQuery} from "@tanstack/react-query"
 import {Card, CardContent} from "@/components/ui/card"
 import {Button} from "@/components/ui/button"
-import {User, UserControllerApiFactory} from "@/api"
+import {FeedControllerApiFactory, User} from "@/api"
 import {useState} from "react";
 import {SwipeCard} from "@components/common/SweepCard.tsx";
 import {Heart, RotateCcw, Sparkles, X} from "lucide-react";
-import {useDislikeUser, useLikeUser} from "@/hooks/api-hooks.ts";
+import {useDislikeUser, useGetCurrentUser, useLikeUser} from "@/hooks/api-hooks.ts";
 
-async function fetchFeed(): Promise<User[]> {
-    const {data} = await UserControllerApiFactory().getAllUsers()
+async function fetchFeed(userEmail: string): Promise<User[]> {
+    const {data} = await FeedControllerApiFactory().getFeed(userEmail, 10);
     return data
 }
 
 export function FriendFeed() {
+    const { data: loggedInUser } = useGetCurrentUser();
+
     const { data: feed = [], isLoading, isError, error, refetch } = useQuery({
-        queryKey: ["friendFeed"],
-        queryFn: fetchFeed,
-        staleTime: 1000 * 60,
+        queryKey: ["feed", loggedInUser?.email],
+        queryFn: () => loggedInUser && fetchFeed(loggedInUser?.email),
     })
 
     const [currentIndex, setCurrentIndex] = useState(0)

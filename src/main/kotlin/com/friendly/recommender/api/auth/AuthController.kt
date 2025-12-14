@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest
 import org.springframework.http.ResponseEntity
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
+import io.swagger.v3.oas.annotations.Parameter
 
 
 @RestController
@@ -70,15 +71,10 @@ final class AuthController(
     }
 
     @GetMapping("/me")
-    fun whoami(request: HttpServletRequest): ResponseEntity<UserResponse> {
-        val authHeader = request.getHeader("Authorization")
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            return ResponseEntity.status(401).build()
-        }
-
+    fun whoami(@Parameter(hidden = true) @RequestHeader("Authorization") authHeader: String): ResponseEntity<UserResponse> {
         val token = authHeader.substring(7)
-        val email = jwtService.extractUsername(token)
-        val user = userService.findByEmail(email!!) ?: return ResponseEntity.status(401).build()
+        val email = jwtService.extractEmail(token)
+        val user = userService.findByEmail(email) ?: return ResponseEntity.status(401).build()
 
         return ResponseEntity.ok(UserResponse(user.email, user.firstname, user.lastname, user.email))
     }
