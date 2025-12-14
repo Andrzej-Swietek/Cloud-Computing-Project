@@ -1,14 +1,14 @@
 import {HouseWifi} from 'lucide-react';
 import {FC} from 'react';
 import {NavLink} from 'react-router-dom';
-import {useTranslation} from 'react-i18next';
+// import {useTranslation} from 'react-i18next';
 
 
 interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = () => {
-    const {t} = useTranslation();
+    // const {t} = useTranslation();
 
     return (
         <header
@@ -28,7 +28,7 @@ export const Navbar: FC<NavbarProps> = () => {
                             to="/feed"
                             className="text-md font-medium text-muted-foreground transition-colors hover:text-foreground"
                         >
-                            {t('navbar.feed')}
+                            Feed
                         </NavLink>
                     </div>
                 </div>

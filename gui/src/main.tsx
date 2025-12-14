@@ -5,7 +5,7 @@ import App from './App.tsx';
 import axios from 'axios';
 
 axios.interceptors.request.use(config => {
-  const token = localStorage.getItem('travel_app_token');
+  const token = localStorage.getItem('app_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

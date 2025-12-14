@@ -1,18 +1,19 @@
 package com.friendly.recommender.api.user
 
+import com.friendly.recommender.api.auth.JwtService
 import com.friendly.recommender.entities.FoodId
 import com.friendly.recommender.entities.HobbyId
 import com.friendly.recommender.entities.PersonalityTraitId
 import com.friendly.recommender.entities.User
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/users")
 class UserController(
-    private val userService: UserService
+    private val userService: UserService,
+    private val jwtService: JwtService
 ) {
 
     @PostMapping
@@ -45,10 +46,11 @@ class UserController(
     @PostMapping("/{id}/like")
     fun likeUser(
         @PathVariable id: String,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.likeUser(
-            userId = principal.userId,
+            userId = principalEmail,
             otherId = id
         )
         return ResponseEntity.ok().build()
@@ -57,10 +59,11 @@ class UserController(
     @DeleteMapping("/{id}/dislike")
     fun dislikeUser(
         @PathVariable id: String,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.dislikeUser(
-            userId = principal.userId,
+            userId = principalEmail,
             otherId = id
         )
         return ResponseEntity.ok().build()
@@ -71,23 +74,26 @@ class UserController(
     fun likeMovie(
         @PathVariable id: String,
         @PathVariable score: Int,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
-        userService.likeMovie(
-            userId = principal.userId,
-            movieId = id,
-            score = score
-        )
+        jwtService.extractUserId(authHeader.substring(7)).let { userId ->
+            userService.likeMovie(
+                userId = userId,
+                movieId = id,
+                score = score
+            )
+        }
         return ResponseEntity.ok().build()
     }
 
     @DeleteMapping("/movie/{id}/dislike")
     fun dislikeMovie(
         @PathVariable id: String,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.dislikeMovie(
-            userId = principal.userId,
+            userId = principalEmail,
             movieId = id
         )
         return ResponseEntity.ok().build()
@@ -97,10 +103,11 @@ class UserController(
     fun likeFood(
         @PathVariable id: String,
         @PathVariable score: Int,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.likeFood(
-            userId = principal.userId,
+            userId = principalEmail,
             foodId = id,
             score = score
         )
@@ -110,10 +117,11 @@ class UserController(
     @PostMapping("/food/{id}/dislike")
     fun dislikeFood(
         @PathVariable id: FoodId,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.dislikeMovie(
-            userId = principal.userId,
+            userId = principalEmail,
             movieId = id
         )
         return ResponseEntity.ok().build()
@@ -122,10 +130,11 @@ class UserController(
     @PostMapping("/hobby/{hobbyId}")
     fun addHobby(
         @PathVariable hobbyId: HobbyId,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.addHobby(
-            userId = principal.userId,
+            userId = principalEmail,
             hobbyId = hobbyId
         )
         return ResponseEntity.ok().build()
@@ -134,10 +143,11 @@ class UserController(
     @DeleteMapping("/remove-hobby/{hobbyId}")
     fun removeHobby(
         @PathVariable hobbyId: HobbyId,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.removeHobby(
-            userId = principal.userId,
+            userId = principalEmail,
             hobbyId = hobbyId
         )
         return ResponseEntity.ok().build()
@@ -146,10 +156,11 @@ class UserController(
     @PostMapping("/trait/{traitId}")
     fun addTrait(
         @PathVariable traitId: PersonalityTraitId,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.addTrait(
-            userId = principal.userId,
+            userId = principalEmail,
             traitId = traitId
         )
         return ResponseEntity.ok().build()
@@ -158,10 +169,11 @@ class UserController(
     @DeleteMapping("/remove-trait/{traitId}")
     fun removeTrait(
         @PathVariable traitId: PersonalityTraitId,
-        @AuthenticationPrincipal principal: UserPrincipal
+        @RequestHeader("Authorization") authHeader: String
     ): ResponseEntity<Void> {
+        val principalEmail = jwtService.extractEmail(authHeader.substring(7))
         userService.removeTrait(
-            userId = principal.userId,
+            userId = principalEmail,
             traitId = traitId
         )
         return ResponseEntity.ok().build()

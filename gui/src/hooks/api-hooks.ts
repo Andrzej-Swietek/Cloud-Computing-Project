@@ -14,7 +14,7 @@ export const useLogin = () => {
         mutationFn: async (credentials: { email: string; password: string }) => {
             const {data} = await AuthControllerApiFactory().login(credentials)
             if (data.token) {
-                localStorage.setItem("authToken", data.token)
+                localStorage.setItem("app_token", data.token)
             }
             return data
         },
